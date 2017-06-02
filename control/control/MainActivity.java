@@ -7,7 +7,7 @@ import com.Ui;
 import data.Student;
 
 public class MainActivity {
-	public ArrayList<Student> studentList = new ArrayList();
+	//public ArrayList<Student> studentList = new ArrayList();
 	static Ui ui = new Ui();
 	static InsertStudent insertStudent = new InsertStudent();
 	static EditStudent editStudent = new EditStudent();
@@ -19,17 +19,24 @@ public class MainActivity {
 		//首页选择
 		while (true) {
 			Scanner s = new Scanner(System.in);
-			
-			int chooseNum = s.nextInt();
-			if (chooseNum == 1) {
-				insertStudent.insert();
-				//break;
-			} else if (chooseNum == 2) {
-				editStudent.edit();
-			}else {
-				System.out.print("请重新输入");
+			try {
+				int chooseNum = Integer.parseInt(s.nextLine().trim());
+				if (chooseNum == 1) {
+					insertStudent.insert();
+					//break;
+				} else if (chooseNum == 2) {
+					editStudent.edit();
+				}else {
+					System.out.print("输入错误，输入相应数字进行操作 ");
+					continue;
+				}
+			} catch (Exception e) {
+				// TODO: handle exception
+				System.out.print("输入错误，输入相应数字进行操作");
 				continue;
 			}
+			
+			
 			
 			try {
 				Thread.sleep(2000);
@@ -40,12 +47,4 @@ public class MainActivity {
 			}
 		}
 	}
-	
-//	public void toMain() {
-//		System.out.println("按任意键返回主界面");
-//		Scanner scanner = new Scanner(System.in);
-//		ui.welcomeActivity();
-//		scanner.close();
-//	}
-
 }
