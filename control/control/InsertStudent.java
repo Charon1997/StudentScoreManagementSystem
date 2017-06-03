@@ -28,6 +28,7 @@ public class InsertStudent {
 		private BufferedReader reader;
 		private InputStream is;
 		private InputStreamReader isReader;
+		OtherControl otherControl = new OtherControl();
 		
 	
 	public void insert() {
@@ -52,7 +53,7 @@ public class InsertStudent {
 		//EditStudent editStudent = new EditStudent(studentList);
 		//backMain
 		//1mainActivity.toMain();
-		saveDate();
+		otherControl.saveDate();
 	}
 	
 	private void checkName(Scanner scanner) {
@@ -78,7 +79,7 @@ public class InsertStudent {
 				}
 			} catch (NumberFormatException e) {
 				// TODO: handle exception
-				System.out.println("请输入数字");
+				System.out.println("请输入1-2147483646的数");
 				continue;
 			}
 		}
@@ -93,7 +94,7 @@ public class InsertStudent {
 				break;
 			} catch (NumberFormatException e) {
 				// TODO: handle exception
-				System.out.println("请输入数字");
+				System.out.println("请输入0-100的数");
 				continue;
 			}
 		}
@@ -123,29 +124,7 @@ public class InsertStudent {
 		System.out.println("课程2："+score2);
 	}
 	
-	private void saveDate() {
-		BufferedWriter bw =null;
-		FileWriter fw;
-		
-		try {
-			fw = new FileWriter("H:/StudentScoreManagementSystem/student_information.txt");
-			bw = new BufferedWriter(fw);
-
-			for(int i = 0;i < studentList.getCount();i++){
-				String information = "姓名："+studentList.getName(i)+"     学号："+studentList.getId(i)+"     课程1："+studentList.getScore1(i)+"     课程2："+studentList.getScore2(i)+"     总成绩："+studentList.getTotalScore(i);
-				System.out.println(information);
-				//byte[] informationInBytes = information.getBytes();
-				bw.write(information);
-				bw.newLine();
-			}
-			bw.flush();
-			bw.close();
-			System.out.println("Done");
-		} catch (Exception e) {
-			// TODO: handle exception
-			e.printStackTrace();
-		}
-	}
+	
 	private void initReader() {
 		if(file != null && file.isFile() && file.canRead()) {
 		//文件存在可读取并且是“文件”而不是目录

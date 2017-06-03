@@ -5,16 +5,18 @@ import java.util.Scanner;
 
 import com.Ui;
 import data.Student;
+import data.StudentList;
 
 public class MainActivity {
 	//public ArrayList<Student> studentList = new ArrayList();
 	static Ui ui = new Ui();
 	static InsertStudent insertStudent = new InsertStudent();
 	static EditStudent editStudent = new EditStudent();
-	
+	static DeleteStudent deleteStudent = new DeleteStudent();
+	static OtherControl otherControl = new OtherControl();
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		
+		otherControl.loadInformationDate();
 		ui.welcomeActivity();
 		//首页选择
 		while (true) {
@@ -26,6 +28,10 @@ public class MainActivity {
 					//break;
 				} else if (chooseNum == 2) {
 					editStudent.edit();
+				} else if (chooseNum == 3) {
+					deleteStudent.delete();
+				} else if (chooseNum == 4) {
+					
 				}else {
 					System.out.print("输入错误，输入相应数字进行操作 ");
 					continue;

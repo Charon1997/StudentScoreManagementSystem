@@ -2,20 +2,24 @@ package control;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
-import java.util.ArrayList;
 import java.util.Scanner;
 
 import com.Ui;
 
-import data.Student;
 import data.StudentList;
 
+
+/*save 没做
+ * 编辑选择234没做
+ * 
+ * */
 public class EditStudent {
 	private String name;
 	private long id;
 	private int score1,score2;
 	StudentList studentList = StudentList.getStudentList();
-	InsertStudent insertStudent = new InsertStudent();
+	//InsertStudent insertStudent = new InsertStudent();
+	OtherControl otherControl = new OtherControl();
 	Ui ui = new Ui();
 	private int searchNum;
 	Scanner scanner = new Scanner(System.in);
@@ -76,7 +80,7 @@ public class EditStudent {
 					id = studentList.getId(i);
 					score1 = studentList.getScore1(i);
 					score2 = studentList.getScore2(i);
-					showSearchInf(i);
+					otherControl.showSearchInf(i);
 					searchNum = i;
 					return 2;
 				}
@@ -88,7 +92,7 @@ public class EditStudent {
 					name = studentList.getName(i);
 					score1 = studentList.getScore1(i);
 					score2 = studentList.getScore2(i);
-					showSearchInf(i);
+					otherControl.showSearchInf(i);
 					searchNum = i;
 					return 2;
 				}
@@ -99,14 +103,6 @@ public class EditStudent {
 		return 1;
 	}
 	
-
-	private void showSearchInf(int i) {
-		System.out.println("学生："+studentList.getName(i));
-		System.out.println("学号:"+studentList.getId(i));
-		System.out.println("课程1："+studentList.getScore1(i));
-		System.out.println("课程2："+studentList.getScore2(i));
-		System.out.println("总成绩："+studentList.getTotalScore(i));
-	}
 	
 	private void editInformation() {
 		//Scanner scanner = new Scanner(System.in);
@@ -118,13 +114,13 @@ public class EditStudent {
 				editName(searchNum);
 				break;
 			} else if (choose == 2) {
-				
+				editId(searchNum);
 				break;
 			} else if (choose == 3) {
-				
+				editScore1(searchNum);
 				break;
 			} else if (choose == 4) {
-				
+				editScore2(searchNum);
 				break;
 			} else if (choose == 0) {
 				try {
@@ -163,35 +159,97 @@ public class EditStudent {
 				}else {
 					studentList.editName(i, name);
 					System.out.println("修改成功");
-					showSearchInf(i);
+					otherControl.saveDate();
+					otherControl.showSearchInf(i);
 					editInformation();
 					break;
 				}
 		}
 	}
 	
-	private void saveDate() {
-		BufferedWriter bw =null;
-		FileWriter fw;
-		
-		try {
-			fw = new FileWriter("H:/StudentScoreManagementSystem/student_information.txt");
-			bw = new BufferedWriter(fw);
-
-			for(int i = 0;i < studentList.getCount();i++){
-				String information = "姓名："+studentList.getName(i)+"     学号："+studentList.getId(i)+"     课程1："+studentList.getScore1(i)+"     课程2："+studentList.getScore2(i)+"     总成绩："+studentList.getTotalScore(i);
-				System.out.println(information);
-				//byte[] informationInBytes = information.getBytes();
-				bw.write(information);
-				bw.newLine();
+	private void editId(int i) {
+		System.out.println("请输入修改后的学号（输入0退出修改）");
+		while (true) {
+			try {
+				long id = Long.parseLong(scanner.nextLine().trim());
+			if (id < 0 || id > 2147483646) {
+				//输入错误
+				System.out.println("请输入1-2147483646的数");
+			} else if (id == 0) {
+				System.out.println("退出");
+				editInformation();
+				break;
+			}else {
+				studentList.editId(i, id);
+				System.out.println("提交成功");
+				otherControl.saveDate();
+				otherControl.showSearchInf(i);
+				editInformation();
+				break;
 			}
-			bw.flush();
-			bw.close();
-			System.out.println("Done");
-		} catch (Exception e) {
-			// TODO: handle exception
-			e.printStackTrace();
+			} catch (Exception e) {
+				// TODO: handle exception
+				System.out.println("请输入1-2147483646的数");
+			}
 		}
 	}
+	
+
+	private void editScore1(int i) {
+		System.out.println("请输入修改后的学号（输入-1退出修改）");
+		while (true) {
+			try {
+				int score1 = Integer.parseInt(scanner.nextLine().trim());
+			if (score1 < -1 || score1 > 100) {
+				//输入错误
+				System.out.println("请输入0-100的数");
+			} else if (score1 == -1) {
+				System.out.println("退出");
+				editInformation();
+				break;
+			}else {
+				studentList.editScore1(i, score1);
+				System.out.println("提交成功");
+				otherControl.saveDate();
+				otherControl.showSearchInf(i);
+				editInformation();
+				break;
+			}
+			} catch (Exception e) {
+				// TODO: handle exception
+				System.out.println("请输入0-100的数");
+			}
+		}
+	}
+	
+	private void editScore2(int i) {
+		System.out.println("请输入修改后的学号（输入-1退出修改）");
+		while (true) {
+			try {
+				int score2 = Integer.parseInt(scanner.nextLine().trim());
+			if (score2 < -1 || score2 > 100) {
+				//输入错误
+				System.out.println("请输入0-100的数");
+			} else if (score2 == -1) {
+				System.out.println("退出");
+				editInformation();
+				break;
+			}else {
+				studentList.editScore2(i, score2);
+				System.out.println("提交成功");
+				otherControl.saveDate();
+				otherControl.showSearchInf(i);
+				editInformation();
+				break;
+			}
+			} catch (Exception e) {
+				// TODO: handle exception
+				System.out.println("请输入0-100的数");
+			}
+		}
+	}
+	
+	
+	
 	
 }
