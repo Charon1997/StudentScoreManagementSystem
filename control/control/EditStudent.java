@@ -1,7 +1,5 @@
 package control;
 
-import java.io.BufferedWriter;
-import java.io.FileWriter;
 import java.util.Scanner;
 
 import com.Ui;
@@ -16,15 +14,12 @@ import data.StudentList;
 public class EditStudent {
 	private String name;
 	private long id;
-	private int score1,score2;
 	StudentList studentList = StudentList.getStudentList();
-	//InsertStudent insertStudent = new InsertStudent();
 	OtherControl otherControl = new OtherControl();
 	Ui ui = new Ui();
 	private int searchNum;
 	Scanner scanner = new Scanner(System.in);
 	public void edit(){
-		//System.out.println("name0"+studentList.getName(0));
 		int searchNum = searchStudent();
 		if (searchNum == 0) {
 			//ÍË³ö
@@ -75,11 +70,8 @@ public class EditStudent {
 		}
 		if (name != null) {
 			for(int i = 0;i < studentList.getCount();i++){
-				//System.out.println("mane:"+studentList.getName(i));
 				if (studentList.getName(i).equals(name)) {
 					id = studentList.getId(i);
-					score1 = studentList.getScore1(i);
-					score2 = studentList.getScore2(i);
 					otherControl.showSearchInf(i);
 					searchNum = i;
 					return 2;
@@ -87,11 +79,8 @@ public class EditStudent {
 			}
 		} else {
 			for(int i = 0;i < studentList.getCount();i++){
-				//System.out.println("id:"+studentList.getId(i));
 				if (studentList.getId(i) == id) {
 					name = studentList.getName(i);
-					score1 = studentList.getScore1(i);
-					score2 = studentList.getScore2(i);
 					otherControl.showSearchInf(i);
 					searchNum = i;
 					return 2;
@@ -105,7 +94,6 @@ public class EditStudent {
 	
 	
 	private void editInformation() {
-		//Scanner scanner = new Scanner(System.in);
 		ui.editStudent();
 		while (true) {
 			try {

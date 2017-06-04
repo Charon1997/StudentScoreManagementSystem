@@ -3,8 +3,6 @@ package com;
 
 public class Ui {
 	public void welcomeActivity(){
-//		System.out.println("*****************************************");
-//		System.out.println("*****************************************");
 		System.out.println("**           欢迎来到学生成绩管理系统                                     **");
 		System.out.println("**    1. 新建学生                                                                                       **");
 		System.out.println("**    2. 编辑学生                                                                                       **");
@@ -12,8 +10,6 @@ public class Ui {
 		System.out.println("**    4. 查看信息                                                                                       **");
 		System.out.println("**    5. 清空信息                                                                                       **");
 		System.out.println("**    输入相应数字进行操作                                                                       **");
-//		System.out.println("*****************************************");
-//		System.out.println("*****************************************");
 	}
 
 	public void insertStudentName(){

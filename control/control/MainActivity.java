@@ -1,14 +1,9 @@
 package control;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 import com.Ui;
-import data.Student;
-import data.StudentList;
 
 public class MainActivity {
-	//public ArrayList<Student> studentList = new ArrayList();
 	static Ui ui = new Ui();
 	static InsertStudent insertStudent = new InsertStudent();
 	static EditStudent editStudent = new EditStudent();
@@ -16,6 +11,7 @@ public class MainActivity {
 	static LookInformation lookInformation = new LookInformation();
 	static ClearInformation clearInformation = new ClearInformation();
 	static OtherControl otherControl = new OtherControl();
+	@SuppressWarnings("resource")
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		otherControl.loadInformationDate();

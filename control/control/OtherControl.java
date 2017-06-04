@@ -7,9 +7,6 @@ import java.io.FileInputStream;
 import java.io.FileWriter;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
-import java.util.Scanner;
-
-import data.Student;
 import data.StudentList;
 
 public class OtherControl {
@@ -25,8 +22,6 @@ public class OtherControl {
 
 			for(int i = 0;i < studentList.getCount();i++){
 				String information = "姓名："+studentList.getName(i)+"     学号："+studentList.getId(i)+"     课程1："+studentList.getScore1(i)+"     课程2："+studentList.getScore2(i)+"     总成绩："+studentList.getTotalScore(i);
-				//System.out.println(information);
-				//byte[] informationInBytes = information.getBytes();
 				bw.write(information);
 				bw.newLine();
 			}
@@ -60,7 +55,6 @@ public class OtherControl {
                    BufferedReader bufferedReader = new BufferedReader(read);
                    String lineTxt = null;
                    while((lineTxt = bufferedReader.readLine()) != null){
-                       //System.out.println(lineTxt);
                        int nameNum = lineTxt.indexOf("姓名");
                        int idNum = lineTxt.indexOf("学号");
                        int score1Num = lineTxt.indexOf("课程1");
@@ -71,7 +65,6 @@ public class OtherControl {
                        int score1 = Integer.parseInt(lineTxt.substring(score1Num+4,score2Num-5));
                        int score2 = Integer.parseInt(lineTxt.substring(score2Num+4,totalScoreNum-5));
                        studentList.addItem(name, id, score1, score2);
-                       //System.out.println(name+id+score1+score2);
                    }
                    read.close();
        }
@@ -101,14 +94,11 @@ public class OtherControl {
 				for(int i = 0;i < studentList.getCount();i++){
 					int num = integersList.get(i);
 					String information = "姓名："+studentList.getName(num)+"     学号："+studentList.getId(num)+"     课程1："+studentList.getScore1(num)+"     课程2："+studentList.getScore2(num)+"     总成绩："+studentList.getTotalScore(num);
-					//System.out.println(information);
-					//byte[] informationInBytes = information.getBytes();
 					bw.write(information);
 					bw.newLine();
 				}
 				bw.flush();
 				bw.close();
-				//System.out.println("Done");
 			} catch (Exception e) {
 				// TODO: handle exception
 				e.printStackTrace();
@@ -187,19 +177,14 @@ public class OtherControl {
 			bw = new BufferedWriter(fw);
 
 			String information1 ="课程1:  平均分："+score1Ave+"  及格率："+pass1+"  不及格率："+no_pass1+"  优："+excellent1+"  良："+good1+"  中："+mid1+"  差："+bad1;
-			//System.out.println(information1);
-			//byte[] informationInBytes = information.getBytes();
 			bw.write(information1);
 			bw.newLine();
 			
-			String information2 ="课程2:  平均分："+score2Ave+"  及格率："+pass2+"  不及格率："+no_pass2+"  优："+excellent2+"  良："+good2+"  中："+mid2+"  差："+bad2;
-			//System.out.println(information2);
-			//byte[] informationInBytes = information.getBytes();
+			String information2 ="课程2:  平均分："+score2Ave+"  及格率："+pass2+"  不及格率："+no_pass2+"  优："+excellent2+"  良："+good2+"  中："+mid2+"  差："+bad2;			
 			bw.write(information2);
 			bw.newLine();
 			bw.flush();
 			bw.close();
-			//System.out.println("DoneCourse");
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();

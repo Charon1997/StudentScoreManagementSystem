@@ -7,7 +7,6 @@ import data.StudentList;
 public class DeleteStudent {
 	private long id;
 	private String name;
-	private int score1,score2;
 	private int searchNum ;
 	StudentList studentList = StudentList.getStudentList();
 	OtherControl otherControl = new OtherControl();
@@ -58,11 +57,8 @@ public class DeleteStudent {
 			name = scanString;
 		}if (name != null) {
 			for(int i = 0;i < studentList.getCount();i++){
-				//System.out.println("mane:"+studentList.getName(i));
 				if (studentList.getName(i).equals(name)) {
 					id = studentList.getId(i);
-					score1 = studentList.getScore1(i);
-					score2 = studentList.getScore2(i);
 					otherControl.showSearchInf(i);
 					searchNum = i;
 					return 2;
@@ -70,11 +66,8 @@ public class DeleteStudent {
 			}
 		} else {
 			for(int i = 0;i < studentList.getCount();i++){
-				//System.out.println("id:"+studentList.getId(i));
 				if (studentList.getId(i) == id) {
 					name = studentList.getName(i);
-					score1 = studentList.getScore1(i);
-					score2 = studentList.getScore2(i);
 					otherControl.showSearchInf(i);
 					searchNum = i;
 					return 2;
