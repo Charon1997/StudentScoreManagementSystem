@@ -18,7 +18,7 @@ public class DeleteStudent {
 			//退出
 		}else if (choose == 1) {
 			//未搜索到
-			System.out.println("按0退出，按1继续搜索");
+			System.out.println("      按0退出，按1继续搜索");
 			while (true) {
 				try {
 				int isExit = Integer.parseInt(scanner.nextLine().trim());
@@ -44,8 +44,8 @@ public class DeleteStudent {
 	}
 	
 	private int searchStudent() {
-		System.out.println("**           欢迎来到学生成绩管理系统                                     **");
-		System.out.println("**          请输入要编辑学生的学号或名字                                **");
+		System.out.println("**          欢迎来到学生成绩管理系统                                         **");
+		System.out.println("**          请输入要删除学生的学号或名字                                **");
 		System.out.println("**          按0退出此界面                                                                 **");
 		String scanString = scanner.nextLine().trim();
 		try {
@@ -70,7 +70,7 @@ public class DeleteStudent {
 			}
 		} else {
 			for(int i = 0;i < studentList.getCount();i++){
-				System.out.println("id:"+studentList.getId(i));
+				//System.out.println("id:"+studentList.getId(i));
 				if (studentList.getId(i) == id) {
 					name = studentList.getName(i);
 					score1 = studentList.getScore1(i);
@@ -81,14 +81,14 @@ public class DeleteStudent {
 				}
 			}
 		} 
-		System.out.println("对不起，未能查询到相应学生");
+		System.out.println("      对不起，未能查询到相应学生");
 		searchNum = -1;
 		return 1;
 	}
 
 	private void deleteInformation() {
-		System.out.println("是否删除"+studentList.getName(searchNum)+"的信息");
-		System.out.println("按1确定删除，按0退出此界面");
+		System.out.println("      是否删除"+studentList.getName(searchNum)+"的信息");
+		System.out.println("      按1确定删除，按0退出此界面");
 		
 		while (true) {
 			try {
@@ -96,18 +96,18 @@ public class DeleteStudent {
 				if (isDelete == 1) {
 					//删除
 					studentList.deleteItem(searchNum);
-					System.out.println("删除成功");
+					System.out.println("      删除成功");
 					otherControl.saveDate();
 					break;
 				} else if (isDelete == 0) {
 					//退出
-					System.out.println("退出");
+					System.out.println("      退出");
 					delete();
 					break;
 				}
 			} catch (Exception e) {
 				// TODO: handle exception
-				System.out.println("输入相应数字进行操作");
+				System.out.println("      输入相应数字进行操作");
 				
 			}
 			

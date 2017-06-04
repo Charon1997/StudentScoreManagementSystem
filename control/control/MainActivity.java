@@ -13,6 +13,8 @@ public class MainActivity {
 	static InsertStudent insertStudent = new InsertStudent();
 	static EditStudent editStudent = new EditStudent();
 	static DeleteStudent deleteStudent = new DeleteStudent();
+	static LookInformation lookInformation = new LookInformation();
+	static ClearInformation clearInformation = new ClearInformation();
 	static OtherControl otherControl = new OtherControl();
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -31,19 +33,18 @@ public class MainActivity {
 				} else if (chooseNum == 3) {
 					deleteStudent.delete();
 				} else if (chooseNum == 4) {
-					
+					lookInformation.look();
+				} else if (chooseNum == 5) {
+					clearInformation.clear();
 				}else {
-					System.out.print("输入错误，输入相应数字进行操作 ");
+					System.out.println("**    输入错误，输入相应数字进行操作                                                **");
 					continue;
 				}
 			} catch (Exception e) {
 				// TODO: handle exception
-				System.out.print("输入错误，输入相应数字进行操作");
+				System.out.println("**    输入错误，输入相应数字进行操作                                                **");
 				continue;
 			}
-			
-			
-			
 			try {
 				Thread.sleep(2000);
 				ui.welcomeActivity();

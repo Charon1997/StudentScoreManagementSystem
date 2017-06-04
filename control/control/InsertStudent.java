@@ -74,8 +74,14 @@ public class InsertStudent {
 				if (id <= 0 || id > 2147483646) {
 					//输入错误
 					System.out.println("请输入1-2147483646的数");
+					continue;
 				}else {
-					break;
+					if (otherControl.isExistStudentId(id)) {
+						System.out.println("该学号已存在，请重新输入");
+						continue;
+					} else {
+						break;
+					}
 				}
 			} catch (NumberFormatException e) {
 				// TODO: handle exception
@@ -117,25 +123,24 @@ public class InsertStudent {
 		
 	}
 	private void showInf() {
-		System.out.println("添加成功！");
-		System.out.println("名字："+name);
-		System.out.println("学号："+id);
-		System.out.println("课程1："+score1);
-		System.out.println("课程2："+score2);
+		System.out.println("      添加成功！");
+		System.out.println("      名字："+name);
+		System.out.println("      学号："+id);
+		System.out.println("      课程1："+score1);
+		System.out.println("      课程2："+score2);
 	}
 	
 	
 	private void initReader() {
 		if(file != null && file.isFile() && file.canRead()) {
 		//文件存在可读取并且是“文件”而不是目录
-		try {
-		is = new FileInputStream(file);//创建文件输入流
-		isReader = new InputStreamReader(is);//创建输出流的Reader
-		reader = new BufferedReader(isReader);//用于按行读取文件
-		} catch (Exception e) {
-		e.printStackTrace();
-		}
-		}
-		}
-	
+			try {
+				is = new FileInputStream(file);//创建文件输入流
+				isReader = new InputStreamReader(is);//创建输出流的Reader
+				reader = new BufferedReader(isReader);//用于按行读取文件
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			}
+	}
 }

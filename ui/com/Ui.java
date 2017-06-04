@@ -1,5 +1,6 @@
 package com;
 
+
 public class Ui {
 	public void welcomeActivity(){
 //		System.out.println("*****************************************");
@@ -9,6 +10,7 @@ public class Ui {
 		System.out.println("**    2. 编辑学生                                                                                       **");
 		System.out.println("**    3. 删除学生                                                                                       **");
 		System.out.println("**    4. 查看信息                                                                                       **");
+		System.out.println("**    5. 清空信息                                                                                       **");
 		System.out.println("**    输入相应数字进行操作                                                                       **");
 //		System.out.println("*****************************************");
 //		System.out.println("*****************************************");
@@ -34,5 +36,15 @@ public class Ui {
 		System.out.println("**    0. 按0退出                                                                                       **");
 		System.out.println("**    输入相应数字进行操作                                                                      **");
 	}
+	
+	public void lookInformation(){
+		System.out.println("**    1. 查看学生信息                                                                            **");
+		System.out.println("**    2. 查看总成绩排名                                                                       **");
+		System.out.println("**    3. 查看课程分析                                                                           **");
+		System.out.println("**    0. 按0退出                                                                                     **");
+		System.out.println("**    输入相应数字进行操作                                                                    **");
+	}
+	
+	
 	
 }
