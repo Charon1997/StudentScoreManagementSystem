@@ -17,7 +17,7 @@ public class OtherControl {
 		FileWriter fw;
 		
 		try {
-			fw = new FileWriter("H:/StudentScoreManagementSystem/student_information.txt");
+			fw = new FileWriter("D:/StudentScoreManagementSystem/student_information.txt");
 			bw = new BufferedWriter(fw);
 
 			for(int i = 0;i < studentList.getCount();i++){
@@ -48,8 +48,12 @@ public class OtherControl {
 	public void loadInformationDate() {
 		   try {
                String encoding="GBK";
-               File file=new File("H:/StudentScoreManagementSystem/student_information.txt");
-               if(file.isFile() && file.exists()){ //判断文件是否存在
+               File file2 = new File("D:/StudentScoreManagementSystem");
+               File file=new File("D:/StudentScoreManagementSystem/student_information.txt");
+               if (!file2.exists()) {
+				file2.mkdirs();
+				file.createNewFile();
+			} else if(file.isFile() && file.exists()){ //判断文件是否存在
                    InputStreamReader read = new InputStreamReader(
                    new FileInputStream(file),encoding);//考虑到编码格式
                    BufferedReader bufferedReader = new BufferedReader(read);
@@ -67,7 +71,10 @@ public class OtherControl {
                        studentList.addItem(name, id, score1, score2);
                    }
                    read.close();
-       }
+       } else {
+    	
+		file.createNewFile();
+	}
        } catch (Exception e) {
            System.out.println("      读取文件内容出错");
            e.printStackTrace();
@@ -88,7 +95,7 @@ public class OtherControl {
 			BufferedWriter bw =null;
 			FileWriter fw;
 			try {
-				fw = new FileWriter("H:/StudentScoreManagementSystem/sort_totalscore.txt");
+				fw = new FileWriter("D:/StudentScoreManagementSystem/sort_totalscore.txt");
 				bw = new BufferedWriter(fw);
 
 				for(int i = 0;i < studentList.getCount();i++){
@@ -173,7 +180,7 @@ public class OtherControl {
 		BufferedWriter bw =null;
 		FileWriter fw;
 		try {
-			fw = new FileWriter("H:/StudentScoreManagementSystem/statistics_course.txt");
+			fw = new FileWriter("D:/StudentScoreManagementSystem/statistics_course.txt");
 			bw = new BufferedWriter(fw);
 
 			String information1 ="课程1:  平均分："+score1Ave+"  及格率："+pass1+"  不及格率："+no_pass1+"  优："+excellent1+"  良："+good1+"  中："+mid1+"  差："+bad1;
@@ -198,11 +205,11 @@ public class OtherControl {
 		try {
 		
 			if (choose == 1) {
-				fw=new FileWriter("H:/StudentScoreManagementSystem/student_information.txt");
+				fw=new FileWriter("D:/StudentScoreManagementSystem/student_information.txt");
 			} else if (choose ==2) {
-				fw=new FileWriter("H:/StudentScoreManagementSystem/sort_totalscore.txt");
+				fw=new FileWriter("D:/StudentScoreManagementSystem/sort_totalscore.txt");
 			} else if (choose ==3) {
-				fw=new FileWriter("H:/StudentScoreManagementSystem/statistics_course.txt");
+				fw=new FileWriter("D:/StudentScoreManagementSystem/statistics_course.txt");
 			}
 			bw = new BufferedWriter(fw);
 			
@@ -228,7 +235,7 @@ public class OtherControl {
 		boolean isEmpty = true;
 		 try {
              String encoding="GBK";
-             File file=new File("H:/StudentScoreManagementSystem/student_information.txt");
+             File file=new File("D:/StudentScoreManagementSystem/student_information.txt");
              if(file.isFile() && file.exists()){ //判断文件是否存在
                  InputStreamReader read = new InputStreamReader(
                  new FileInputStream(file),encoding);//考虑到编码格式

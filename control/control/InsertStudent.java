@@ -29,16 +29,8 @@ public class InsertStudent {
 		ui.insertStudentScore2();
 		checkScore2(scanner);
 		
-		
-		//Student student = new Student(id,name,score1,score2);
 		studentList.addItem(name, id, score1, score2);
-		//studentList.showId(0);
-		//sList.add(student);
 		showInf();
-		//scanner.close();
-		//EditStudent editStudent = new EditStudent(studentList);
-		//backMain
-		//1mainActivity.toMain();
 		otherControl.saveDate();
 	}
 	
@@ -47,7 +39,7 @@ public class InsertStudent {
 			name = scanner.nextLine().trim();
 				if (name.length() <2 || name.length() > 16) {
 					//输入错误
-					System.out.println("请输入2-16字符的名字");
+					System.out.println("      请输入2-16字符的名字");
 				}else {
 					break;
 				}
@@ -59,11 +51,11 @@ public class InsertStudent {
 				id = Long.parseLong(scanner.nextLine().trim());
 				if (id <= 0 || id > 2147483646) {
 					//输入错误
-					System.out.println("请输入1-2147483646的数");
+					System.out.println("      请输入1-2147483646的数");
 					continue;
 				}else {
 					if (otherControl.isExistStudentId(id)) {
-						System.out.println("该学号已存在，请重新输入");
+						System.out.println("      该学号已存在，请重新输入");
 						continue;
 					} else {
 						break;
@@ -71,7 +63,7 @@ public class InsertStudent {
 				}
 			} catch (NumberFormatException e) {
 				// TODO: handle exception
-				System.out.println("请输入1-2147483646的数");
+				System.out.println("      请输入1-2147483646的数");
 				continue;
 			}
 		}
@@ -81,12 +73,12 @@ public class InsertStudent {
 			try {
 				score1 = Integer.parseInt(scanner.nextLine().trim());
 			if (score1 < 0 || score1 >100) 
-				System.out.println("请输入0-100的数");
+				System.out.println("      请输入0-100的数");
 			else 
 				break;
 			} catch (NumberFormatException e) {
 				// TODO: handle exception
-				System.out.println("请输入0-100的数");
+				System.out.println("      请输入0-100的数");
 				continue;
 			}
 		}
@@ -97,12 +89,12 @@ public class InsertStudent {
 			try {
 				score2 = Integer.parseInt(scanner.nextLine().trim());
 			if (score2 < 0 || score2 >100) 
-				System.out.println("请输入0-100的数");
+				System.out.println("      请输入0-100的数");
 			else 
 				break;
 			} catch (NumberFormatException e) {
 				// TODO: handle exception
-				System.out.println("请输入数字");
+				System.out.println("      请输入数字");
 				continue;
 			}
 		}

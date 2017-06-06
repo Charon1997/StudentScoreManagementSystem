@@ -47,11 +47,11 @@ public class LookInformation {
          String encoding="GBK";
          File file = null;
          if (choose == 1) {
-				file=new File("H:/StudentScoreManagementSystem/student_information.txt");
+				file=new File("D:/StudentScoreManagementSystem/student_information.txt");
 			} else if (choose ==2) {
-				file=new File("H:/StudentScoreManagementSystem/sort_totalscore.txt");
+				file=new File("D:/StudentScoreManagementSystem/sort_totalscore.txt");
 			} else if (choose ==3) {
-				file=new File("H:/StudentScoreManagementSystem/statistics_course.txt");
+				file=new File("D:/StudentScoreManagementSystem/statistics_course.txt");
 			}
          
          if(file.isFile() && file.exists()){ //判断文件是否存在

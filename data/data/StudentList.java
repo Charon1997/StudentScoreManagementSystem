@@ -3,7 +3,7 @@ package data;
 import java.util.ArrayList;
 
 public class StudentList implements IStudentList{
-	private ArrayList<Student> studentList = new ArrayList();
+	private ArrayList<Student> studentList = new ArrayList<Student>();
 	
 	private StudentList(){};
     private static StudentList c = new StudentList();

@@ -7,10 +7,7 @@ import com.Ui;
 import data.StudentList;
 
 
-/*save 没做
- * 编辑选择234没做
- * 
- * */
+
 public class EditStudent {
 	private String name;
 	private long id;
@@ -184,7 +181,7 @@ public class EditStudent {
 	
 
 	private void editScore1(int i) {
-		System.out.println("      请输入修改后的学号（输入-1退出修改）");
+		System.out.println("      请输入修改后课程1的成绩（输入-1退出修改）");
 		while (true) {
 			try {
 				int score1 = Integer.parseInt(scanner.nextLine().trim());
@@ -211,7 +208,7 @@ public class EditStudent {
 	}
 	
 	private void editScore2(int i) {
-		System.out.println("      请输入修改后的学号（输入-1退出修改）");
+		System.out.println("      请输入修改后课程2的成绩（输入-1退出修改）");
 		while (true) {
 			try {
 				int score2 = Integer.parseInt(scanner.nextLine().trim());
